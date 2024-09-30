@@ -1,0 +1,25 @@
+{{!-- <!-- MDB -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script> --}}
+<!-- Include ShareThis Plugin -->
+<script type="text/javascript" src="https://platform-api.sharethis.com/js/sharethis.js#property=66fa3792dfdd420019b8cfa2&product=inline-share-buttons&source=platform" async="async"></script>
+
+     <script src="/socket.io/socket.io.js"></script>
+    <script>
+        const socket = io();
+
+        const input = document.getElementById('message-input');
+        input.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && input.value.trim() !== '') {
+                socket.emit('message', input.value);
+                input.value = '';
+            }
+        });
+
+        socket.on('message', (msg) => {
+            const messagesList = document.getElementById('messages');
+            const newMessage = document.createElement('li');
+            newMessage.textContent = msg;
+            messagesList.appendChild(newMessage);
+            messagesList.scrollTop = messagesList.scrollHeight;
+        });
+    </script>

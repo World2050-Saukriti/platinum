@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EVENT REGISTRATION FORM</title>
+
+    <!-- Font Awesome -->
+     <style>
+        /* body{
+            background: rgb(2,0,36);
+            background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(26,3,93,1) 38%, rgba(0,212,255,1) 100%);
+        } */
+        .logo1, .logo2, .logo3, .logo4{
+
+            height:140px;
+            width:140px;
+           egb 
+        }
+        .plogo{
+            height: 100px;
+            width: 100px;
+        }
+        /* Target devices with a maximum width of 600px */
+@media (max-width: 600px) {
+    .logo1, .logo2, .logo3, .logo4{
+
+height:50px;
+width:50px;
+}
+.fmh{
+    font-size: 18px;
+}
+}
+
+
+.form-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.form-group {
+    flex: 0 0 30%; /* 30% width for each field, adjust if necessary */
+    margin-bottom: 15px;
+}
+
+
+.modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            justify-content: center;
+            align-items: center;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+        }
+
+        .modal-header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .modal-body {
+            margin-bottom: 20px;
+        }
+
+        .modal-body p {
+            font-size: 18px;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .modal-footer button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .print-btn {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .download-btn {
+            background-color: #2196F3;
+            color: white;
+        }
+
+        .close-btn {
+            background-color: #f44336;
+            color: white;
+        }
+
+        .hidden {
+            display: none;
+        }
+/* For mobile screens, show all fields in a column */
+@media (max-width: 768px) {
+    .form-group {
+        flex: 0 0 100%;
+    }
+}
+
+     </style>
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.min.css"
+rel="stylesheet"
+/>
+</head>
+<body>
+<div class="container pt-5">
+    <div class="logosection d-flex justify-content-center align-items-center">
+        <!-- <div class="logo1">
+            <img src="SIKKIM AWARDS.svg" class="logo2" alt="sikkim awards">
+        </div> -->
+        <div class="logo2">
+           <img src="SPLOGO.png"  class="logo2" alt="sikkim awards">
+        </div>
+        <!-- <div class="logo3">
+            <img src="STAR AWARD.svg" class="logo2" alt="sikkim awards">
+          
+        </div> -->
+
+    </div>
+    <h1 class="w-100 text-center my-5">Event Registration Form</h1><hr>
+    <div class="d-flex align-items-center justify-content-between">
+        <div class="logo4  w-100">
+            <img src="KAUN BANEGA LAKHPATI2.svg" class="logo2" alt="sikkim awards">
+        </div>
+       <div>
+        <p class="w-100 text-center h3 fmh" style="text-wrap: nowrap;">Kaun Banega Lakhpati</p>
+        <p class="w-100 text-center mb-5">Last Registration Day - Nov 21, 2024</p>
+       </div>
+    </div>
+
+<hr>
+<div class="formsection p-3 border border-primary rounded shadow-lg mb-5 p-2">
+    <form class="w-100" id="nff" onsubmit="checker(event)">
+        <div>
+            <h3 class="h5">Details of Candidate</h3>
+            <hr>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="prefix" class="form-label">Prefix</label>
+                    <select name="prefix" id="prefix" class="form-select">
+                        <option value="Mr">Mr.</option>
+                        <option value="Miss">Miss.</option>
+                        <option value="Mrs">Mrs.</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="first-name" class="form-label">First Name</label>
+                    <input type="text" id="first-name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="last-name" class="form-label">Last Name</label>
+                    <input type="text" id="last-name" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="form-row mt-3">
+                <div class="form-group">
+                    <label for="dob" class="form-label">Date Of Birth</label>
+                    <input type="date" id="dob" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="father-name" class="form-label">Father's Name</label>
+                    <input type="text" id="father-name" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="mother-name" class="form-label">Mother's Name</label>
+                    <input type="text" id="mother-name" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="form-row mt-3">
+                <div class="form-group">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" id="email" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="phone" class="form-label">Phone</label>
+                    <input type="tel" id="phone" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="wp" class="form-label">WhatsApp No.</label>
+                    <input type="tel" id="wp" class="form-control">
+                </div>
+            </div>
+        </div>
+        <div>
+            <div class="form-row mt-3">
+                <div class="form-group">
+                    <label for="district" class="form-label">District</label>
+                    <select name="district" id="district" class="form-select">
+                        <option value="soreng">Soreng</option>
+                        <option value="geyzing">Geyzing</option>
+                        <option value="namchi">Namchi</option>
+                        <option value="gangtok">Gangtok</option>
+                        <option value="pakyong">Pakyong</option>
+                        <option value="mangan">Mangan</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="constituency" class="form-label">Constituency</label>
+                    <input type="text" id="constituency" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="gpu" class="form-label">GPU</label>
+                    <input type="text" id="gpu" class="form-control">
+                </div>
+            </div>
+        </div>
+
+        <div></div>
+            <div class="form-row mt-3">
+                <div class="form-group">
+                    <label for="pin" class="form-label">Pincode</label>
+                    <input type="number" id="pin" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="street" class="form-label">Street Address</label>
+                    <input type="text" id="street" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="aadhar" class="form-label">Aadhar No.</label>
+                    <input type="text" id="aadhar" class="form-control">
+                </div>
+            </div>
+            <div class="form-row mt-3">
+                <div class="form-group">
+                    <input type="checkbox" id="rule" required> &nbsp;<br/>
+                    <label for="rule" class="form-label">Read and accept the <a href="/terms.html">Terms & Condition</a> and <a href="privacy.html">Privacy Policy</a> & <a href="/refund.html">Refund Policy</a></label>
+                </div>
+            </div>
+            <div class="form-row mt-3"></div>
+            <button class="btn btn-primary rounded" id="sbtn" type="submit">Register</button>
+
+            </div>
+        </div>
+    </form>
+</div>
+
+
+</div>
+<div id="lotteryModal" class="modal">
+    <div class="modal-content">
+        <div class="modal-header">Registration Details</div>
+        <div class="modal-header">Kaun Banega Lakhpati - 2024</div>
+        <div class="modal-body">
+            <div class="logos d-flex align-items-center justify-content-between mb-3 mt-3">
+                <img src="KAUN BANEGA LAKHPATI2.svg" class="plogo" alt="lakhputi">
+                <img src="SPLOGO.png" alt="lakhputi" class="plogo">
+            </div>
+            <hr>
+            <h4 class="w-100 text-center">Registration Succesful</h4>
+            <p><strong>Registration Number:</strong> <span id="lotteryNumber"></span></p>
+            <p><strong>Date of Registration:</strong> <span id="registrationDate"></span></p>
+        </div>
+        <div class="modal-footer noprint">
+            <button class="download-btn" onclick="downloadImage()">Download</button>
+            <!-- <button class="close-btn" onclick="closeModal()">Close</button> -->
+        </div>
+        </div>
+        </div>
+<!-- Footer -->
+<footer class="bg-body-tertiary text-center">
+    <!-- Grid container -->
+    <div class="container p-4">
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <!-- Facebook -->
+        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-facebook-f"></i
+        ></a>
+  
+        <!-- Twitter -->
+        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-twitter"></i
+        ></a>
+  
+        <!-- Google -->
+        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-google"></i
+        ></a>
+  
+        <!-- Instagram -->
+        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-instagram"></i
+        ></a>
+  
+        <!-- Linkedin -->
+        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-linkedin-in"></i
+        ></a>
+  
+        <!-- Github -->
+        <a data-mdb-ripple-init class="btn btn-outline btn-floating m-1" href="#!" role="button"
+          ><i class="fab fa-github"></i
+        ></a>
+      </section>
+      <!-- Section: Social media -->
+      <section class="mb-4">
+        <h3 class="w-100 text-center">Disclaimer</h3><hr>
+        <p>
+            By submitting this registration form, you agree to provide accurate and complete information. Participation in "Kaun Banega Lakhpati" is subject to eligibility criteria and event rules, which are subject to change at the discretion of the organizers. Personal information collected will be used solely for the purpose of event registration and communication. The organizers reserve the right to disqualify any entry found to be in violation of the rules or containing false information. Participation does not guarantee selection or winning. Please review all terms and conditions before registering.
+        </p>
+      </section>
+      <!-- Section: Text -->
+  
+      <!-- Section: Links -->
+      <section class="">
+        <!--Grid row-->
+        <div class="row">
+          <!--Grid column-->
+          <!--Grid column-->
+        </div>
+        <!--Grid row-->
+      </section>
+      <!-- Section: Links -->
+    </div>
+    <!-- Grid container -->
+  
+    <!-- Copyright -->
+    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2020 Copyright:
+      <a class="text-reset fw-bold" href="#">MSGSSS - Bermiok</a>
+    </div>
+     <!-- Modal -->
+     
+        </div>
+        </footer>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+
+    <!-- MDB -->
+<script
+type="text/javascript"
+src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/7.3.2/mdb.umd.min.js"
+></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/print-js/1.6.0/print.js" integrity="sha512-/fgTphwXa3lqAhN+I8gG8AvuaTErm1YxpUjbdCvwfTMyv8UZnFyId7ft5736xQ6CyQN4Nzr21lBuWWA9RTCXCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js" integrity="sha512-BNaRQnYJYiPSqHHDb58B0yaPfCu+Wgds8Gp/gU33kqBtgNS4tSPHuGibyoeqMV/TJlSKda6FXzoEyYGjTe+vXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script type="module" defer>
+    import * as yp from 'https://cdn.jsdelivr.net/npm/yup@1.4.0/+esm'
+    window.yup = yp;
+    </script>
+<script type="text/javascript">
+    // Define the schema for validation using Yup
+    alert("This site is still under development & it doesn't confirms the registrations.")
+    let sbtn = document.querySelector("#sbtn");
+   let api = "https://script.google.com/macros/s/AKfycbxJLjcm2hr3_qhYdWo86TAY8FJD9xV0CdH90uLFaGbEqoYqzAvtnasI8NMRwLmw4OtwBw/exec";
+
+
+
+   function forprint() {
+    html2canvas(document.querySelector("#lotteryModal")).then(canvas => {
+        let durl = canvas.toDataURL(); // Convert to base64 image
+        let newWindow = window.open('', '', 'width=800,height=600'); // Open a new window
+        newWindow.document.write('<img src="' + durl + '" />'); // Insert the base64 image into the new window
+        newWindow.document.close();
+        setTimeout(()=>{
+            newWindow.focus();
+            newWindow.print();
+        },3000) // Trigger print
+    });
+}
+
+function downloadImage() {
+    document.querySelector(".noprint").remove()
+    html2canvas(document.querySelector("#lotteryModal")).then(canvas => {
+        let durl = canvas.toDataURL(); // Convert the element to base64 image
+        
+        // Create a download link
+        let link = document.createElement('a');
+        link.href = durl;
+        link.download = 'kaun-banega-lakhpati.png'; // Name of the downloaded file
+        link.click(); // Trigger download
+    });
+}
+
+    function checker(event) {
+        sbtn.disabled=true;
+        sbtn.textContent="Registering..."
+    event.preventDefault();  // Stop form submission
+    event.stopPropagation(); // Optional: stop event from bubbling
+    const formSchema = yup.object().shape({
+        prefix: yup.string().required('Prefix is required'),
+        firstName: yup.string().required('First Name is required'),
+        lastName: yup.string().required('Last Name is required'),
+        dob: yup.date().required('Date of Birth is required').max(new Date(), 'Date of Birth must be in the past'),
+        fatherName: yup.string().required("Father's Name is required"),
+        motherName: yup.string().required("Mother's Name is required"),
+        email: yup.string().email('Invalid email format').required('Email is required'),
+        phone: yup.string()
+            .matches(/^\d{10}$/, 'Phone must be a valid 10-digit number')
+            .required('Phone is required'),
+        wp: yup.string()
+            .matches(/^\d{10}$/, 'WhatsApp number must be a valid 10-digit number')
+            .required('WhatsApp number is required'),
+        district: yup.string().required('District is required'),
+        constituency: yup.string().required('Constituency is required'),
+        gpu: yup.string().required('GPU is required'),
+        pin: yup.string()
+            .matches(/^\d{6}$/, 'Pincode must be a valid 6-digit number')
+            .required('Pincode is required'),
+        street: yup.string().required('Street Address is required'),
+        aadhar: yup.string()
+            .matches(/^\d{12}$/, 'Aadhar number must be a valid 12-digit number')
+            .required('Aadhar number is required')
+    });
+    const formData = {
+        prefix: document.getElementById('prefix').value,
+        firstName: document.getElementById('first-name').value,
+        lastName: document.getElementById('last-name').value,
+        dob: document.getElementById('dob').value,
+        fatherName: document.getElementById('father-name').value,
+        motherName: document.getElementById('mother-name').value,
+        email: document.getElementById('email').value,
+        phone: document.getElementById('phone').value,
+        wp: document.getElementById('wp').value,
+        district: document.getElementById('district').value,
+        constituency: document.getElementById('constituency').value,
+        gpu: document.getElementById('gpu').value,
+        pin: document.getElementById('pin').value,
+        street: document.getElementById('street').value,
+        aadhar: document.getElementById('aadhar').value
+    };
+
+    // Validate the form data using Yup
+    formSchema.validate(formData, { abortEarly: false })
+        .then(function (valid) {
+            let dataarray = Object.values(valid);
+            fetch(api,{
+                method:"POST",
+                body:JSON.stringify(dataarray)
+            }).then(res=>res.json())
+            .then(data=>{
+                console.log(data)
+                 sbtn.disabled=false;
+                sbtn.textContent="Register"
+                openLotteryModal(data.number, data.dt);
+
+            }).catch(err=>{
+                 sbtn.disabled=false;
+                sbtn.textContent="Register"
+                alert("Error : "+err.message)
+            })
+            // console.log()
+            // Proceed with form submission logic (e.g., AJAX or other processing)
+        })
+        .catch(function (errors) {
+            sbtn.disabled=false;
+            sbtn.textContent="Register"
+            const errorMessages = errors.inner.map(err => `${err.path}: ${err.message}`).join('\n');
+            alert(`Validation errors:\n\n${errorMessages}`);
+        });
+
+    
+}
+
+
+
+        function openLotteryModal(lotteryNumber, registrationDate) {
+            document.getElementById('lotteryNumber').textContent = lotteryNumber;
+            document.getElementById('registrationDate').textContent = registrationDate;
+            document.getElementById('lotteryModal').style.display = 'flex';
+        }
+
+        // Function to close the modal
+        function closeModal() {
+            document.getElementById('lotteryModal').style.display = 'none';
+        }
+
+        // Function to print the modal
+        function printModal() {
+            const modalContent = document.querySelector('.modal-content').innerHTML;
+            const newWindow = window.open('', '', 'width=600,height=400');
+            newWindow.document.write(`${modalContent}`);
+            newWindow.document.close();
+            newWindow.focus();
+            newWindow.print();
+        }
+
+        // Function to download the lottery number details
+        function downloadLotteryNumber() {
+            const lotteryNumber = document.getElementById('lotteryNumber').textContent;
+            const registrationDate = document.getElementById('registrationDate').textContent;
+            const data = `Lottery Number: ${lotteryNumber}\nDate of Registration: ${registrationDate}`;
+            const blob = new Blob([data], { type: 'text/plain' });
+            const link = document.createElement('a');
+            link.href = URL.createObjectURL(blob);
+            link.download = 'LotteryNumber.txt';
+            link.click();
+        }
+    
+</script>
+
+
+    
+</body>
+</html>
